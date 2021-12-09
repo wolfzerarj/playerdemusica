@@ -50,6 +50,38 @@ progress{
     width: 300px;
     justify-content: space-between;
 }
+/*volume*/
+.volume{
+    width: 300px;
+    margin-top: 25px;
+}
+.barravolume{
+    width: 300px;
+    height: 6px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+progress{
+    height: 6px;
+    width: 0;
+    background-color: #333;
+}
+.pontovolume{
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-left: -10px;
+    
+}
+.rotulovolume{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+/*volume*/
 .player{
     width: 300px;
     display: flex;
@@ -70,3 +102,12 @@ div .botao-play, .botao-pause {
     color: #eee;
 }
 
+.volume{
+    display:flex ;
+    justify-content: space-between;
+
+   
+}
+@media screen and (max-width:768px) {
+    
+}
