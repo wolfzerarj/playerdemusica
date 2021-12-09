@@ -55,14 +55,18 @@ progress{
     display: flex;
     justify-content: space-around;
 }
-.botao-play, .botao-pause {
+div .botao-pause{
+    display:none;
+    
+}
+div .botao-play, .botao-pause {
     font-size: 50px;
     cursor: pointer;
+    color: #eee;
 }
 .setas{
     font-size: 40px;
     cursor: pointer;
+    color: #eee;
 }
-div .botao-pause{
-    display:none;
-}
+
