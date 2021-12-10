@@ -1,4 +1,5 @@
-body, html{
+body,
+html {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,25 +7,30 @@ body, html{
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color:#333;
-    color:#ddd;
+    background-color: #333;
+    color: #ddd;
     font-family: 'Montserrat', sans-serif;
 }
-img{
+
+img {
     width: 200px;
     height: auto;
 }
-.descrição{
+
+.descrição {
     width: 300px;
 }
-h2{
-    margin-bottom:5px ;
+
+h2 {
+    margin-bottom: 5px;
 }
-.duração{
+
+.duração {
     width: 300px;
     margin-top: 25px;
 }
-.barra{
+
+.barra {
     width: 300px;
     height: 6px;
     border: 1px solid #eee;
@@ -32,30 +38,35 @@ h2{
     display: flex;
     align-items: center;
 }
-progress{
+
+progress {
     height: 6px;
     width: 0;
     background-color: #333;
 }
-.ponto{
+
+.ponto {
     width: 20px;
     height: 20px;
     background-color: #eee;
     border-radius: 50%;
     margin-left: -10px;
-    
+
 }
-.tempo{
+
+.tempo {
     display: flex;
     width: 300px;
     justify-content: space-between;
 }
+
 /*volume*/
-.volume{
+.volume {
     width: 300px;
     margin-top: 25px;
 }
-.barravolume{
+
+.barravolume {
     width: 300px;
     height: 6px;
     border: 1px solid #eee;
@@ -63,51 +74,63 @@ progress{
     display: flex;
     align-items: center;
 }
-progress{
+
+progress {
     height: 6px;
     width: 0;
     background-color: #333;
 }
-.pontovolume{
+
+.pontovolume {
     width: 20px;
     height: 20px;
     background-color: #eee;
     border-radius: 50%;
     margin-left: -10px;
-    
+
 }
-.rotulovolume{
+
+.rotulovolume {
     display: flex;
     width: 300px;
     justify-content: space-between;
 }
+
 /*volume*/
-.player{
+.player {
     width: 300px;
     display: flex;
     justify-content: space-around;
 }
-div .botao-pause{
-    display:none;
-    
+
+div .botao-pause {
+    display: none;
+
 }
-div .botao-play, .botao-pause {
+
+div .botao-play,
+.botao-pause {
     font-size: 50px;
     cursor: pointer;
     color: #eee;
 }
-.setas{
+
+.setas {
     font-size: 40px;
     cursor: pointer;
     color: #eee;
 }
 
-.volume{
-    display:flex ;
-    justify-content: space-between;
-
-   
-}
-@media screen and (max-width:768px) {
+.volume {
+    display: flex;
+    justify-content: space-evenly;
+    letter-spacing: 0.5em;
     
 }
+/* .barradevolume{
+    width: 10em;
+    
+    
+} */
+
+@media screen and (max-width:768px) {}

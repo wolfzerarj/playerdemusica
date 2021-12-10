@@ -1,3 +1,4 @@
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 var musicas = [{
         titulo: 'Ponto de Paz ',
         artista: 'Theô',
@@ -63,16 +64,23 @@ var musicas = [{
     },
 ];
 
-var musica = document.querySelector('audio');
-var indexMusica = 0;
+let musica = document.querySelector('audio');
 
+let indexMusica = 0;
 
-var duracaoMusica = document.querySelector('.fim');
-var imagem = document.querySelector('img');
-var nomeMusica = document.querySelector('.descrição h2');
-var nomeArtista = document.querySelector('.descrição i');
+let duracaoMusica = document.querySelector('.fim');
 
-let volume = 1.0;
+let imagem = document.querySelector('img');
+
+let nomeMusica = document.querySelector('.descrição h2');
+
+let nomeArtista = document.querySelector('.descrição i');
+
+let progressBar = document.querySelector('#volumeaudio');
+progressBar.addEventListener('click', seek);
+
+let volume = 100;
+
 
 renderizarMusica(indexMusica);
 
@@ -94,6 +102,7 @@ document.querySelector('.anterior').addEventListener('click', () => {
         indexMusica = 9;
     }
     renderizarMusica(indexMusica);
+    musica.play();
 });
 document.querySelector('.proxima').addEventListener('click', () => {
     indexMusica++;
@@ -101,6 +110,7 @@ document.querySelector('.proxima').addEventListener('click', () => {
         indexMusica = 0;
     }
     renderizarMusica(indexMusica);
+    musica.play();
 })
 
 atualizarVolume(volume);
@@ -109,13 +119,13 @@ atualizarVolume(volume);
 function renderizarMusica(index) {
     musica.setAttribute('src', musicas[index].src);
     musica.addEventListener('loadeddata', () => {
-
+        
         nomeMusica.textContent = musicas[index].titulo;
         nomeArtista.textContent = musicas[index].artista;
         imagem.src = musicas[index].img;
         duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
 
-    });
+    })
 }
 
 function tocarMusica() {
@@ -132,6 +142,7 @@ function pausarMusica() {
 
 function atualizarMusica() {
     musica.addEventListener('meta')
+    
 }
 
 function atualizarBarra() {
@@ -140,11 +151,8 @@ function atualizarBarra() {
     var tempoDecorrido = document.querySelector('.inicio');
     tempoDecorrido.textContent = segundosParaMinutos(Math.floor(musica.currentTime));
 }
-function atualizarVolume(vol){
-    let barraaudio = document.querySelector('#volumeaudio');
-    barraaudio.style.width = Math.floor(vol * 100) + '%';
 
-}
+
 
 
 function segundosParaMinutos(segundos) {
@@ -157,17 +165,31 @@ function segundosParaMinutos(segundos) {
 }
 
 /* função de volume*/
-function diminuirVolume() {
-    volume = volume - 0.1
-    musica.volume = volume
-    atualizarVolume(volume)
+function seek(e) {
+    var percent = e.offsetX / this.offsetWidth;
+    progressBar.value = percent * 100;
+    console.log((percent * 100))
 }
 
-function aumentarVolume() {
-    if (volume >= 1) {} else {
-        volume = volume + 0.1
-        musica.volume = volume
-    }
-    atualizarVolume(volume)
+function atualizarVolume() {
+    let barraaudio = document.querySelector('.barradevolume');
+    barraaudio.style.width = vol + '%' ;
 
+}
+async function diminuirVolume() {
+    if (volume <= 100 && volume > 0) {
+        volume = volume - 10
+        musica.volume = volume / 100
+        
+
+
+    }
+}
+
+async function aumentarVolume() {
+    if (volume >= 0 && volume < 100) {
+        volume = volume + 10
+        musica.volume = volume / 100
+        
+    }
 }
